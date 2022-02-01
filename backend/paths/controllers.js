@@ -77,7 +77,7 @@ export const uploadProduct = async (req, res) => {
 
   const data = await ProductModel.create({
     productTitle: req.body.productTitle,
-    prodcutPrice: parseInt(req.body.productPrice),
+    productPrice: parseInt(req.body.productPrice),
     productDesc: req.body.productDesc,
     productImg: req.file.filename,
   });
