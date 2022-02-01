@@ -1,5 +1,6 @@
 import { UserModel } from "../model/model.schema";
 import jwt from "jsonwebtoken";
+import multer from "multer";
 
 const jwtCode = "whatareudoing";
 
@@ -67,3 +68,10 @@ export const getAllUsers = async (req, res) => {
   const allUsers = await UserModel.find({}).exec();
   res.send(allUsers);
 };
+
+// export const uploadProduct = (req, res) => {
+//   res.send({
+//     bodyData: req.body,
+//     fileData: req.file,
+//   });
+// };

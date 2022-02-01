@@ -34,15 +34,7 @@ const Navigation = () => {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link
-                    className="nav-link active"
-                    aria-current="page"
-                    to="/login"
-                  >
-                    Login
-                  </Link>
-                </li>
+
                 <li className="nav-item">
                   <a
                     className="nav-link active"
@@ -74,21 +66,13 @@ const Navigation = () => {
                     >
                       <li>
                         <Link className="dropdown-item" to="/admin/products">
-                          Products
+                          Add products
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" to="/admin/users">
-                          Users
+                        <Link className="dropdown-item" to="/admin/removeprod">
+                          Remove products
                         </Link>
-                      </li>
-                      <li>
-                        <hr className="dropdown-divider" />
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Cart
-                        </a>
                       </li>
                     </ul>
                   </li>

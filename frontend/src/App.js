@@ -13,6 +13,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Products from "./admin/Products";
 import Users from "./admin/Users";
+import RemoveProduct from "./admin/Removeprod";
 
 const App = () => {
   const [user, setUser] = useState("{}");
@@ -31,6 +32,9 @@ const App = () => {
     <userInfo.Provider value={[user, setUser]}>
       <Router>
         <Switch>
+          <Route path="/admin/removeprod">
+            <RemoveProduct />
+          </Route>
           <Route path="/admin/users">
             <Users />
           </Route>

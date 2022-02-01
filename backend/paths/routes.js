@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { addingUser, convertingJwtToObj } from "./controllers";
 import { userLogin, getAllUsers } from "./controllers";
+import multer from "multer";
 
 const router = Router();
 
@@ -15,5 +16,24 @@ router.route("/getjwt/:token").get(convertingJwtToObj);
 
 //get all users
 router.route("/allusers").get(getAllUsers);
+
+// this is the storage for the uploaded image
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../upload/images");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, uniqueSuffix + "-" + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+//uploading product
+router.route("/uploadProd").post(upload.single("avatar"), (req, res) => {
+  console.log(req.body);
+  res.redirect("http://localhost:1234/admin/products");
+});
 
 export default router;
