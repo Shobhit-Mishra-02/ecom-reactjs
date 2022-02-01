@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { addingUser, convertingJwtToObj } from "./controllers";
-import { userLogin, getAllUsers } from "./controllers";
+import { userLogin, getAllUsers, uploadProduct } from "./controllers";
+
 import multer from "multer";
 
 const router = Router();
@@ -31,9 +32,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 //uploading product
-router.route("/uploadProd").post(upload.single("avatar"), (req, res) => {
-  console.log(req.body);
-  res.redirect("http://localhost:1234/admin/products");
-});
+router.route("/uploadProd").post(upload.single("avatar"), uploadProduct);
 
 export default router;

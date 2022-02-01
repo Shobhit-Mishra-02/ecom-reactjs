@@ -1,4 +1,4 @@
-import { UserModel } from "../model/model.schema";
+import { UserModel, ProductModel } from "../model/model.schema";
 import jwt from "jsonwebtoken";
 import multer from "multer";
 
@@ -69,9 +69,18 @@ export const getAllUsers = async (req, res) => {
   res.send(allUsers);
 };
 
-// export const uploadProduct = (req, res) => {
-//   res.send({
-//     bodyData: req.body,
-//     fileData: req.file,
-//   });
-// };
+export const uploadProduct = async (req, res) => {
+  // console.log(req.body);
+  // console.log(req.file);
+  //req.file.filename : this is for the uploaded file name
+  // req.body : this will hold the text content from the form
+
+  const data = await ProductModel.create({
+    productTitle: req.body.productTitle,
+    prodcutPrice: parseInt(req.body.productPrice),
+    productDesc: req.body.productDesc,
+    productImg: req.file.filename,
+  });
+  console.log(data);
+  res.redirect("http://localhost:1234/admin/products");
+};

@@ -13,6 +13,9 @@ app.use(morgan("dev"));
 app.use(urlencoded({ extended: true }));
 app.use(cors());
 
+//serving static file for the images
+app.use(express.static("../upload/images"));
+
 app.use("/", router);
 
 connectDB().then((e) => {
