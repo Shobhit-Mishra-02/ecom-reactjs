@@ -4,14 +4,18 @@ import { useEffect, useState } from "react";
 const Cardsection = () => {
   const [prodData, setProdData] = useState([]);
 
+  const cuttingWords = (content) => {
+    return content.slice(0, 80) + "...";
+  };
+
   const makingRequest = async () => {
     const data = await fetch("http://localhost:5000/getallprod");
     const json = await data.json();
-    return json.products;
+    setProdData(json.products);
   };
 
   useEffect(() => {
-    setProdData(makingRequest());
+    makingRequest();
   }, []);
 
   return (
@@ -22,7 +26,7 @@ const Cardsection = () => {
             <Card
               key={item.productTitle}
               title={item.productTitle}
-              desc={item.productDesc}
+              desc={cuttingWords(item.productDesc)}
               img={item.productImg}
             />
           );

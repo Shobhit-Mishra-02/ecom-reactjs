@@ -6,7 +6,7 @@ const Products = () => {
       <Navigation />
       <h1 className="text-center">Add products</h1>
       <hr />
-      <div className="container w-50 border p-3 rounded">
+      <div className="container w-50 border p-3 rounded mb-4">
         <form
           action="http://localhost:5000/uploadProd"
           method="post"
