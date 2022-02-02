@@ -69,9 +69,11 @@ export const getAllUsers = async (req, res) => {
   res.send(allUsers);
 };
 
+/*
+this controller is for uploading the products data like
+product's name, price , description and category,
+*/
 export const uploadProduct = async (req, res) => {
-  // console.log(req.body);
-  // console.log(req.file);
   //req.file.filename : this is for the uploaded file name
   // req.body : this will hold the text content from the form
 
@@ -84,4 +86,11 @@ export const uploadProduct = async (req, res) => {
   });
   console.log(data);
   res.redirect("http://localhost:1234/admin/products");
+};
+
+export const getAllProds = async (req, res) => {
+  const data = await ProductModel.find({}, { _id: 0, __v: 0 }).exec();
+  res.status(200).send({
+    products: data,
+  });
 };

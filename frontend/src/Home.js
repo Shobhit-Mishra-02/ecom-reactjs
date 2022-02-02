@@ -1,4 +1,5 @@
 import Navigation from "./Navigation";
+import Cardsection from "./Cardsection";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
         width="400px"
         height="400px"
       ></img> */}
+      <Cardsection />
     </div>
   );
 };

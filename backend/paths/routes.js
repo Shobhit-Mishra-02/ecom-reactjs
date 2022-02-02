@@ -1,6 +1,11 @@
 import { Router } from "express";
 import { addingUser, convertingJwtToObj } from "./controllers";
-import { userLogin, getAllUsers, uploadProduct } from "./controllers";
+import {
+  userLogin,
+  getAllUsers,
+  uploadProduct,
+  getAllProds,
+} from "./controllers";
 
 import multer from "multer";
 
@@ -33,5 +38,8 @@ const upload = multer({ storage: storage });
 
 //uploading product
 router.route("/uploadProd").post(upload.single("avatar"), uploadProduct);
+
+//for getting all products
+router.route("/getallprod").get(getAllProds);
 
 export default router;
