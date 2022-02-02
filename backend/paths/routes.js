@@ -5,6 +5,7 @@ import {
   getAllUsers,
   uploadProduct,
   getAllProds,
+  getProductById,
 } from "./controllers";
 
 import multer from "multer";
@@ -41,5 +42,8 @@ router.route("/uploadProd").post(upload.single("avatar"), uploadProduct);
 
 //for getting all products
 router.route("/getallprod").get(getAllProds);
+
+//get product by ID
+router.route("/getproduct/:id").get(getProductById);
 
 export default router;

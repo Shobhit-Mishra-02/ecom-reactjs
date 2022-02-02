@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Card = (params) => {
   return (
     <div
@@ -15,9 +17,9 @@ const Card = (params) => {
       <div className="card-body">
         <h5 className="card-title">{params.title}</h5>
         <p className="card-text">{params.desc}</p>
-        <a href="#" className="btn btn-primary">
+        <Link to={`product/${params.id}`} className="btn btn-primary">
           Go somewhere
-        </a>
+        </Link>
       </div>
     </div>
   );

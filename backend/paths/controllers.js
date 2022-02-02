@@ -89,8 +89,13 @@ export const uploadProduct = async (req, res) => {
 };
 
 export const getAllProds = async (req, res) => {
-  const data = await ProductModel.find({}, { _id: 0, __v: 0 }).exec();
+  const data = await ProductModel.find({}, { __v: 0 }).exec();
   res.status(200).send({
     products: data,
   });
+};
+
+export const getProductById = async (req, res) => {
+  const data = await ProductModel.findById(req.params.id);
+  res.send(data);
 };

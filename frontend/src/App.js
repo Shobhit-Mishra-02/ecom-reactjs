@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import Products from "./admin/Products";
 import Users from "./admin/Users";
 import RemoveProduct from "./admin/Removeprod";
+import ProductView from "./ProductView";
 
 const App = () => {
   const [user, setUser] = useState("{}");
@@ -40,6 +41,9 @@ const App = () => {
           </Route>
           <Route path="/admin/products">
             <Products />
+          </Route>
+          <Route path="/product/:id">
+            <ProductView />
           </Route>
           <Route path="/register">
             <Registration />

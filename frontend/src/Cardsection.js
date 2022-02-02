@@ -28,6 +28,7 @@ const Cardsection = () => {
               title={item.productTitle}
               desc={cuttingWords(item.productDesc)}
               img={item.productImg}
+              id={item._id}
             />
           );
         })
