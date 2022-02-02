@@ -16,6 +16,7 @@ const productSchema = new mongoose.Schema({
   productImg: { type: String },
   productDesc: { type: String },
   productPrice: { type: Number },
+  productCategory: { type: String },
 });
 
 export const UserModel = mongoose.model("user", userSchema);

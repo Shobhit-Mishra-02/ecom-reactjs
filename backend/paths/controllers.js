@@ -80,6 +80,7 @@ export const uploadProduct = async (req, res) => {
     productPrice: parseInt(req.body.productPrice),
     productDesc: req.body.productDesc,
     productImg: req.file.filename,
+    productCategory: req.body.productCategory,
   });
   console.log(data);
   res.redirect("http://localhost:1234/admin/products");

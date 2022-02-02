@@ -51,6 +51,24 @@ const Products = () => {
           </div>
 
           <div className="mb-3">
+            <label htmlFor="category" className="form-label">
+              Product category
+            </label>
+            <select
+              className="form-select"
+              aria-label="Default select example"
+              name="productCategory"
+            >
+              <option defaultValue={"Select product category"}>
+                Select product category
+              </option>
+              <option value="Man">Man</option>
+              <option value="Women">Women</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Children">Children</option>
+            </select>
+          </div>
+          <div className="mb-3">
             <label htmlFor="decs" className="form-label">
               Product description
             </label>
