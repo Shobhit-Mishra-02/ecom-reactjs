@@ -102,9 +102,7 @@ const Navigation = () => {
                           Orders
                         </a>
                       </li>
-                      <li>
-                        <hr className="dropdown-divider" />
-                      </li>
+
                       <li>
                         <a className="dropdown-item" href="#">
                           Cart

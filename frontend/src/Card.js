@@ -18,7 +18,7 @@ const Card = (params) => {
         <h5 className="card-title">{params.title}</h5>
         <p className="card-text">{params.desc}</p>
         <Link to={`product/${params.id}`} className="btn btn-primary">
-          Go somewhere
+          Check details
         </Link>
       </div>
     </div>
