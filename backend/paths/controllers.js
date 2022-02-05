@@ -1,4 +1,4 @@
-import { UserModel, ProductModel } from "../model/model.schema";
+import { UserModel, ProductModel, CartModel } from "../model/model.schema";
 import jwt from "jsonwebtoken";
 import multer from "multer";
 
@@ -88,6 +88,9 @@ export const uploadProduct = async (req, res) => {
   res.redirect("http://localhost:1234/admin/products");
 };
 
+/*
+This will send all products to the user
+*/
 export const getAllProds = async (req, res) => {
   const data = await ProductModel.find({}, { __v: 0 }).exec();
   res.status(200).send({
@@ -95,7 +98,41 @@ export const getAllProds = async (req, res) => {
   });
 };
 
+/*
+This takes an product ID and gives back the whole product details
+which is in the database.
+*/
 export const getProductById = async (req, res) => {
   const data = await ProductModel.findById(req.params.id);
+  res.send(data);
+};
+
+/*
+This takes the userID and productID , then 
+put the product details in the user's database
+*/
+export const addToCart = async (req, res) => {
+  const data = await CartModel.updateOne(
+    { user: req.params.user },
+    {
+      $push: {
+        cartProducts: req.params.product,
+      },
+    },
+    { upsert: true }
+  ).exec();
+
+  res.send({
+    user: req.params.user,
+    product: req.params.product,
+    data,
+  });
+};
+
+export const getCartStatus = async (req, res) => {
+  const data = await CartModel.findOne({ user: req.params.userID })
+    .populate("cartProducts")
+    .exec();
+
   res.send(data);
 };

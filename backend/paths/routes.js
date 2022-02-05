@@ -6,6 +6,8 @@ import {
   uploadProduct,
   getAllProds,
   getProductById,
+  addToCart,
+  getCartStatus,
 } from "./controllers";
 
 import multer from "multer";
@@ -45,5 +47,9 @@ router.route("/getallprod").get(getAllProds);
 
 //get product by ID
 router.route("/getproduct/:id").get(getProductById);
+
+router.route("/addToCart/:product/:user").get(addToCart);
+
+router.route("/getCartInfo/:userID").get(getCartStatus);
 
 export default router;
