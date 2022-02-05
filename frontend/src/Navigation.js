@@ -104,9 +104,9 @@ const Navigation = () => {
                       </li>
 
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item" to="user/cart">
                           Cart
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>

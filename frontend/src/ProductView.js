@@ -15,6 +15,10 @@ const ProductView = () => {
     setStatus(1);
   };
 
+  const addToCart = async () => {
+    console.log("clicked on cart");
+  };
+
   useEffect(() => {
     makingRequest();
   }, []);
@@ -39,7 +43,10 @@ const ProductView = () => {
               <h3>PRICE: {prodData.productPrice}</h3>
               <p className="text-center">{prodData.productDesc}</p>
               <div>
-                <button className="btn btn-primary mx-3 mt-2">
+                <button
+                  className="btn btn-primary mx-3 mt-2"
+                  onClick={(e) => addToCart()}
+                >
                   Add to Cart
                 </button>
                 <button className="btn btn-primary mx-3 mt-2">Buy Now</button>

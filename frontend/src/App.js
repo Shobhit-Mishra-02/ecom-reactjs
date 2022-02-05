@@ -15,6 +15,7 @@ import Products from "./admin/Products";
 import Users from "./admin/Users";
 import RemoveProduct from "./admin/Removeprod";
 import ProductView from "./ProductView";
+import CartView from "./Cart";
 
 const App = () => {
   const [user, setUser] = useState("{}");
@@ -33,6 +34,9 @@ const App = () => {
     <userInfo.Provider value={[user, setUser]}>
       <Router>
         <Switch>
+          <Route path="/user/cart">
+            <CartView />
+          </Route>
           <Route path="/admin/removeprod">
             <RemoveProduct />
           </Route>
