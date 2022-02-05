@@ -1,10 +1,12 @@
 import Navigation from "./Navigation";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import userInfo from "./context";
 
 const ProductView = () => {
   const [prodData, setProdData] = useState({});
   const [status, setStatus] = useState(0);
+  const [user, setUser] = useContext(userInfo);
 
   const { id } = useParams();
   const makingRequest = async () => {
@@ -17,6 +19,13 @@ const ProductView = () => {
 
   const addToCart = async () => {
     console.log("clicked on cart");
+    if (status && localStorage.length) {
+      const data = await fetch(
+        `http://localhost:5000/addToCart/${id}/${JSON.parse(user).id}`
+      );
+      const json = await data.json();
+      console.log(json);
+    }
   };
 
   useEffect(() => {

@@ -34,9 +34,6 @@ const App = () => {
     <userInfo.Provider value={[user, setUser]}>
       <Router>
         <Switch>
-          <Route path="/user/cart">
-            <CartView />
-          </Route>
           <Route path="/admin/removeprod">
             <RemoveProduct />
           </Route>
@@ -48,6 +45,9 @@ const App = () => {
           </Route>
           <Route path="/product/:id">
             <ProductView />
+          </Route>
+          <Route path="/cart">
+            <CartView />
           </Route>
           <Route path="/register">
             <Registration />
