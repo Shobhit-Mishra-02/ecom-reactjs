@@ -122,7 +122,7 @@ const Navigation = () => {
                   </Link>
                 </li>
               </ul>
-              <form className="d-flex">
+              <form className="d-flex" onSubmit={(e) => e.preventDefault()}>
                 <input
                   className="form-control me-2"
                   type="search"
@@ -186,7 +186,7 @@ const Navigation = () => {
                   </Link>
                 </li>
               </ul>
-              <form className="d-flex">
+              <form className="d-flex" onSubmit={(e) => e.preventDefault()}>
                 <input
                   className="form-control me-2"
                   type="search"
