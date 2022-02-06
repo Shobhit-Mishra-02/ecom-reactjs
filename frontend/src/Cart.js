@@ -25,7 +25,7 @@ const CartView = () => {
         <div>
           {cartDetails.map((item) => {
             return (
-              <div key={item.id}>
+              <div key={item._id}>
                 <h2>{item.productTitle}</h2>
                 <h4>{item.productPrice}</h4>
                 <p>{item.productDesc}</p>
