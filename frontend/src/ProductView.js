@@ -28,6 +28,19 @@ const ProductView = () => {
     }
   };
 
+  const clickOnBuy = async () => {
+    console.log("clicked on the buy now button");
+    if (status && localStorage.length) {
+      const data = await fetch(
+        `http://localhost:5000/addToOrder/${prodData._id}/${
+          JSON.parse(user).id
+        }`
+      );
+      const json = await data.json();
+      console.log(json);
+    }
+  };
+
   useEffect(() => {
     makingRequest();
   }, []);
@@ -58,7 +71,12 @@ const ProductView = () => {
                 >
                   Add to Cart
                 </button>
-                <button className="btn btn-primary mx-3 mt-2">Buy Now</button>
+                <button
+                  className="btn btn-primary mx-3 mt-2"
+                  onClick={(e) => clickOnBuy()}
+                >
+                  Buy Now
+                </button>
               </div>
             </div>
           </div>

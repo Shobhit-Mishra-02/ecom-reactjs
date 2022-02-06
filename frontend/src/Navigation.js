@@ -98,9 +98,9 @@ const Navigation = () => {
                         </a>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item" to="/order">
                           Orders
-                        </a>
+                        </Link>
                       </li>
 
                       <li>

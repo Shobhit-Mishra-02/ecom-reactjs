@@ -16,6 +16,7 @@ import Users from "./admin/Users";
 import RemoveProduct from "./admin/Removeprod";
 import ProductView from "./ProductView";
 import CartView from "./Cart";
+import OrderView from "./Orders";
 
 const App = () => {
   const [user, setUser] = useState("{}");
@@ -45,6 +46,9 @@ const App = () => {
           </Route>
           <Route path="/product/:id">
             <ProductView />
+          </Route>
+          <Route path="/order">
+            <OrderView />
           </Route>
           <Route path="/cart">
             <CartView />
