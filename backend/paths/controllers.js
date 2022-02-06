@@ -1,4 +1,9 @@
-import { UserModel, ProductModel, CartModel } from "../model/model.schema";
+import {
+  UserModel,
+  ProductModel,
+  CartModel,
+  OrderModel,
+} from "../model/model.schema";
 import jwt from "jsonwebtoken";
 import multer from "multer";
 
@@ -132,6 +137,28 @@ export const addToCart = async (req, res) => {
 export const getCartStatus = async (req, res) => {
   const data = await CartModel.findOne({ user: req.params.userID })
     .populate("cartProducts")
+    .exec();
+
+  res.send(data);
+};
+
+export const addToOrder = async (req, res) => {
+  const data = await OrderModel.updateOne(
+    { userID: req.params.userID },
+    {
+      $push: { productID: req.params.productID },
+    },
+    {
+      upsert: true,
+    }
+  );
+
+  res.send(data);
+};
+
+export const getOrders = async (req, res) => {
+  const data = await OrderModel.findOne({ userID: req.params.userID })
+    .populate("productID")
     .exec();
 
   res.send(data);

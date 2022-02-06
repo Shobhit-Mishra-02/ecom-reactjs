@@ -8,6 +8,8 @@ import {
   getProductById,
   addToCart,
   getCartStatus,
+  addToOrder,
+  getOrders,
 } from "./controllers";
 
 import multer from "multer";
@@ -48,8 +50,16 @@ router.route("/getallprod").get(getAllProds);
 //get product by ID
 router.route("/getproduct/:id").get(getProductById);
 
+//to update the cart database with productID and userID
 router.route("/addToCart/:product/:user").get(addToCart);
 
+//to get the cart products of a particular user with the userID
 router.route("/getCartInfo/:userID").get(getCartStatus);
+
+//to update the order database with productID and userID
+router.route("/addToOrder/:productID/:userID").get(addToOrder);
+
+//to get the ordered products of a particular user with the userID
+router.route("/getOrder/:userID").get(getOrders);
 
 export default router;

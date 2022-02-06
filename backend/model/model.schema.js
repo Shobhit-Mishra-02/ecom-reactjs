@@ -27,6 +27,12 @@ const cartSchema = new mongoose.Schema({
   },
 });
 
+const OrderSchema = new mongoose.Schema({
+  userID: { type: Schema.Types.ObjectId, ref: "user" },
+  productID: [{ type: Schema.Types.ObjectId, ref: "product" }],
+});
+
 export const UserModel = mongoose.model("user", userSchema);
 export const ProductModel = mongoose.model("product", productSchema);
 export const CartModel = mongoose.model("cartproduct", cartSchema);
+export const OrderModel = mongoose.model("order", OrderSchema);
