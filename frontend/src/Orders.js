@@ -1,6 +1,7 @@
 import Navigation from "./Navigation";
 import { useState, useEffect, useContext } from "react";
 import userInfo from "./context";
+import OrderCard from "./OrderCard";
 
 const OrderView = () => {
   const [user, setUser] = useContext(userInfo);
@@ -24,9 +25,24 @@ const OrderView = () => {
     <div>
       <Navigation />
       <div>
-        {orders.map((item) => {
-          return <div key={item._id}>{item.productTitle}</div>;
-        })}
+        <h2 className="text-center">Order list</h2>
+        {orders.length ? (
+          orders.map((item) => {
+            return (
+              <OrderCard
+                key={item._id}
+                productName={item.productTitle}
+                productDesc={item.productDesc}
+                productImg={item.productImg}
+                productPrice={item.productPrice}
+              />
+            );
+          })
+        ) : (
+          <div>
+            <h3>Do some orders</h3>
+          </div>
+        )}
       </div>
     </div>
   );

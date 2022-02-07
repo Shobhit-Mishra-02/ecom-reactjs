@@ -16,6 +16,7 @@ import Users from "./admin/Users";
 import RemoveProduct from "./admin/Removeprod";
 import ProductView from "./ProductView";
 import CartView from "./Cart";
+import SearchView from "./SearchResult";
 import OrderView from "./Orders";
 
 const App = () => {
@@ -46,6 +47,9 @@ const App = () => {
           </Route>
           <Route path="/product/:id">
             <ProductView />
+          </Route>
+          <Route path="/search/:text">
+            <SearchView />
           </Route>
           <Route path="/order">
             <OrderView />

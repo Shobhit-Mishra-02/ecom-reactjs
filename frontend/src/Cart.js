@@ -1,6 +1,7 @@
 import Navigation from "./Navigation";
 import { useState, useEffect, useContext } from "react";
 import userInfo from "./context";
+import CartCard from "./CartCard";
 
 const CartView = () => {
   const [cartDetails, setCartDetails] = useState([]);
@@ -21,20 +22,25 @@ const CartView = () => {
   return (
     <div>
       <Navigation />
+      <h2 className="text-center">Cart section</h2>
       {cartDetails.length ? (
         <div>
           {cartDetails.map((item) => {
             return (
-              <div key={item._id}>
-                <h2>{item.productTitle}</h2>
-                <h4>{item.productPrice}</h4>
-                <p>{item.productDesc}</p>
-              </div>
+              <CartCard
+                key={item._id}
+                productName={item.productTitle}
+                productDesc={item.productDesc}
+                productImg={item.productImg}
+                productPrice={item.productPrice}
+              />
             );
           })}
         </div>
       ) : (
-        <div>loading</div>
+        <div>
+          <h3>Do some shoping and select some products</h3>
+        </div>
       )}
     </div>
   );

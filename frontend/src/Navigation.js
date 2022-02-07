@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import userInfo from "./context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Navigation = () => {
   const [user, setUser] = useContext(userInfo);
+  const [search, setSearch] = useState("");
+  const history = useHistory();
+
+  const onSubmission = () => {
+    history.push("/search/" + search);
+  };
+
   if (localStorage.length) {
     const userObj = JSON.parse(user);
     return (
@@ -122,12 +130,19 @@ const Navigation = () => {
                   </Link>
                 </li>
               </ul>
-              <form className="d-flex" onSubmit={(e) => e.preventDefault()}>
+              <form
+                className="d-flex"
+                onSubmit={(e) => {
+                  onSubmission();
+                }}
+              >
                 <input
                   className="form-control me-2"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
                 />
                 <button className="btn btn-outline-success" type="submit">
                   Search
@@ -186,12 +201,19 @@ const Navigation = () => {
                   </Link>
                 </li>
               </ul>
-              <form className="d-flex" onSubmit={(e) => e.preventDefault()}>
+              <form
+                className="d-flex"
+                onSubmit={(e) => {
+                  onSubmission();
+                }}
+              >
                 <input
                   className="form-control me-2"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
                 />
                 <button className="btn btn-outline-success" type="submit">
                   Search
