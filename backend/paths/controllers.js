@@ -163,3 +163,14 @@ export const getOrders = async (req, res) => {
 
   res.send(data);
 };
+
+export const doSearch = async (req, res) => {
+  const text = req.body.text;
+  const data = await ProductModel.find({
+    $text: {
+      $search: text,
+    },
+  }).exec();
+
+  res.send(data);
+};

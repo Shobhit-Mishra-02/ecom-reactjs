@@ -10,6 +10,7 @@ import {
   getCartStatus,
   addToOrder,
   getOrders,
+  doSearch,
 } from "./controllers";
 
 import multer from "multer";
@@ -61,5 +62,8 @@ router.route("/addToOrder/:productID/:userID").get(addToOrder);
 
 //to get the ordered products of a particular user with the userID
 router.route("/getOrder/:userID").get(getOrders);
+
+//to do a search
+router.route("/search").post(doSearch);
 
 export default router;
