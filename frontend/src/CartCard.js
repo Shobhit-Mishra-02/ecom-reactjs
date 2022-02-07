@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CartCard = (params) => {
   return (
     <div>
@@ -16,7 +18,12 @@ const CartCard = (params) => {
             <p className="text-center">{params.productDesc}</p>
             <div className="align-items-center">
               <button className="btn btn-primary mx-2 mt-3">Remove</button>
-              <button className="btn btn-primary mx-2 mt-3">Buy now</button>
+              <Link
+                to={`product/${params.id}`}
+                className="btn btn-primary mx-2 mt-3"
+              >
+                Check details
+              </Link>
             </div>
           </div>
         </div>

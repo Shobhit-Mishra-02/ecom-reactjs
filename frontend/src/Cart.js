@@ -33,6 +33,7 @@ const CartView = () => {
                 productDesc={item.productDesc}
                 productImg={item.productImg}
                 productPrice={item.productPrice}
+                id={item._id}
               />
             );
           })}
