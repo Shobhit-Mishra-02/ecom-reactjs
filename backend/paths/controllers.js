@@ -134,6 +134,14 @@ export const addToCart = async (req, res) => {
   });
 };
 
+export const removeProdFromCart = async (req, res) => {
+  // const data = await CartModel.updateOne({})
+  res.send({
+    message: "we are going to do something",
+    id: req.params.productID,
+  });
+};
+
 export const getCartStatus = async (req, res) => {
   const data = await CartModel.findOne({ user: req.params.userID })
     .populate("cartProducts")

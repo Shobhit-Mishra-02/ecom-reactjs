@@ -11,6 +11,7 @@ import {
   addToOrder,
   getOrders,
   doSearch,
+  removeProdFromCart,
 } from "./controllers";
 
 import multer from "multer";
@@ -56,6 +57,9 @@ router.route("/addToCart/:product/:user").get(addToCart);
 
 //to get the cart products of a particular user with the userID
 router.route("/getCartInfo/:userID").get(getCartStatus);
+
+//to remove the product from the cart list
+router.route("/removeFromCart/:productID").get(removeProdFromCart);
 
 //to update the order database with productID and userID
 router.route("/addToOrder/:productID/:userID").get(addToOrder);
