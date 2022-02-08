@@ -42,8 +42,8 @@ const SearchView = () => {
           );
         })
       ) : (
-        <div class="spinner-border align-items-center" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <div className="spinner-border align-items-center" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
       )}
     </div>
