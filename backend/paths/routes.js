@@ -59,7 +59,7 @@ router.route("/addToCart/:product/:user").get(addToCart);
 router.route("/getCartInfo/:userID").get(getCartStatus);
 
 //to remove the product from the cart list
-router.route("/removeFromCart/:productID").get(removeProdFromCart);
+router.route("/removeFromCart/:productID/:userID").get(removeProdFromCart);
 
 //to update the order database with productID and userID
 router.route("/addToOrder/:productID/:userID").get(addToOrder);

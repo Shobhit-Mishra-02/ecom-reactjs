@@ -135,10 +135,17 @@ export const addToCart = async (req, res) => {
 };
 
 export const removeProdFromCart = async (req, res) => {
-  // const data = await CartModel.updateOne({})
+  const data = await CartModel.updateOne(
+    { user: req.params.userID },
+    {
+      $pull: { cartProducts: req.params.productID },
+    }
+  ).exec();
+
   res.send({
-    message: "we are going to do something",
+    user: req.params.userID,
     id: req.params.productID,
+    data,
   });
 };
 
