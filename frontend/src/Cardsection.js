@@ -19,7 +19,7 @@ const Cardsection = () => {
   }, []);
 
   return (
-    <div className="container d-flex justify-content-center align-items-center">
+    <div className="container d-flex flex-wrap mt-4 justify-content-center align-items-center">
       {prodData.length ? (
         prodData.map((item) => {
           return (

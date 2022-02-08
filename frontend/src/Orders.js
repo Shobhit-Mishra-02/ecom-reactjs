@@ -25,7 +25,8 @@ const OrderView = () => {
     <div>
       <Navigation />
       <div>
-        <h2 className="text-center">Order list</h2>
+        <h1 className="text-center">Order list</h1>
+        <hr className="mb-3"></hr>
         {orders.length ? (
           orders.map((item) => {
             return (

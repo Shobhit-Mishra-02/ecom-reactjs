@@ -34,7 +34,8 @@ const CartView = () => {
   return (
     <div>
       <Navigation />
-      <h2 className="text-center">Cart section</h2>
+      <h1 className="text-center">Cart section</h1>
+      <hr className="mb-3"></hr>
       {cartDetails.length ? (
         <div>
           {cartDetails.map((item) => {
