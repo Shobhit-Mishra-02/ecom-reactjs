@@ -12,6 +12,7 @@ import {
   getOrders,
   doSearch,
   removeProdFromCart,
+  removeProd,
 } from "./controllers";
 
 import multer from "multer";
@@ -69,5 +70,8 @@ router.route("/getOrder/:userID").get(getOrders);
 
 //to do a search
 router.route("/search").post(doSearch);
+
+//to remove products from the product database
+router.route("/removeProd/:productID").get(removeProd);
 
 export default router;

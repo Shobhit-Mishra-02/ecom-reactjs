@@ -189,3 +189,10 @@ export const doSearch = async (req, res) => {
 
   res.send(data);
 };
+
+export const removeProd = async (req, res) => {
+  const data = await ProductModel.deleteOne({
+    _id: req.params.productID,
+  }).exec();
+  res.send(data);
+};
